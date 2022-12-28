@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Specific-book</title>
+</head>
+
+<body>
+  <header class="header">
+    <hr>
+    <div class="header__container">
+      <h2>JS BAND STORE/ Your full name</h2>
+      <nav class="navigation">
+        <img src="../../assets/cart.svg" alt="cart image" width="40">
+        <button class="sign-out">Sign-Out</button>
+        <img src="../../assets/avatar.png" alt="user avatar" width="40">
+        <span>Username</span>
+      </nav>
+    </div>
+    <hr>
+  </header>
+  <main>
+
+     <!-- <div class="book">
+        <img class="book__image" src="./assets/imageNotFound.png" alt="book image">
+        <ul class="book__info">
+          <li><b>Book title:</b> Eloquent Javascript</li>
+          <li><b>Book author:</b> Marijn Haverbeke</li>
+          <li><b>Book shortDescription:</b> Beginer</li>
+        </ul>
+        <div class="book__info-row">
+          <span class="row__label">Price</span>
+          <button class="view__button">View</button>
+        </div>
+        <p class="book__description">
+          <b>Description:</b> A book providing an introduction to
+          the JavaScript language and programming in general.
+        </p>
+      </div>
+      -->
+
+    <div class="book-specification">
+      <img class="book__image" src="../../assets/imageNotFound.png" alt="book image">
+      <ul class="book__info">
+        <li><b>Book name:</b> Eloquent Javascript</li>
+        <li><b>Book author:</b> Marijn Haverbeke</li>
+        <li><b>Book level:</b> Beginer</li>
+        <li><b>Book tags:</b> core</li>
+      </ul>
+      <div class="book__order">
+        <div class="order__row">
+          <span class="row__label">Price:</span>
+          <span id="initPrice" class="row__price">$0.00</span>
+        </div>
+        <label class="order__row">
+          <span class="row__label">Count:</span>
+          <input id="quantity" class="count__quantity" type="number" min="1" max="42" value="1">
+        </label>
+        <div class="order__row">
+          <span class="row__label">Total price:</span>
+          <span id="totalPrice" class="row__price">$0.00</span>
+        </div>
+        <div class="order__button">
+          <button class="add__button">Add to cart</button>
+        </div>
+      </div>
+    </div>
+    <p class="book__description">
+      <b>Description:</b> A book providing an introduction to
+      the JavaScript language and programming in general.
+    </p>
+  </main>
+  <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Book-list</title>
+</head>
+<body>
+    <header class="header">
+        <hr>
+        <div class="header__container">
+          <h2>JS BAND STORE/ Your full name</h2>
+          <nav class="navigation">
+            <img src="../../assets/cart.svg" alt="cart image" width="40">
+            <button class="sign-out">Sign-Out</button>
+            <img src="../../assets/avatar.png" alt="user avatar" width="40">
+            <span>Username</span>
+          </nav>
+        </div>
+        <hr>
+      </header>
+      <main>
+        <div class="search-filters">
+          <div class="search-bar">
+          <input type="text" placeholder="Search by book name" arial-label="search" />
+          <button class="search-bar__btn"><img src="../../assets/search.svg" alt="search"></button>
+        </div>
+        <div class="book__pirce">
+          <label class="choose-price" for="bookPrice">Choose a price:</label>
+          <select name="Price" id="choosePrice">
+            <option value="">Price</option>
+            <option value="41.89">41.89</option>   
+            <option value="38.49">38.49</option>   
+            <option value="36.99">36.99</option>   
+            <option value="31.99">31.99</option>   
+            <option value="29.99">29.99</option>   
+            <option value="29.49">29.49</option>   
+            <option value="26.49">26.49</option>   
+          </select>
+        </div>
+        </div>
+        <div class="container grid" id="bookList"></div>
+    </main>
+  <script src="main.js"></script>  
+</body>
+</html>
