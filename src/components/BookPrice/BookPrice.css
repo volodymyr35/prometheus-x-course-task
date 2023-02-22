@@ -1,0 +1,21 @@
+.book__price {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  #choosePrice {
+    padding: 8px;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 18px;
+    background-color: #fff;
+    box-shadow: none;
+    width: 150px;
+  }
+  
+  .choose-price {
+    font-size: 18px;
+  }

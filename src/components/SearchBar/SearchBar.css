@@ -1,0 +1,27 @@
+.search-bar {
+    width: 40%;
+    margin: 0 20px;
+    position: relative;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 16px;
+    border-radius: none;
+    border: 2px solid grey;
+    background-color: #fff;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: 500;
+    color: #000;
+  }
+  
+  
+  .search-bar__btn {
+    position: absolute;
+    right: 0;
+    top: 8px;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+  }

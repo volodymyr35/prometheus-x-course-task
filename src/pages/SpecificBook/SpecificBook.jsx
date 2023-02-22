@@ -8,7 +8,7 @@ export function SpecificBook() {
         <img
           className="book__image"
           src="../../images/imageNotFound.png"
-          alt="book image"
+          alt="book"
         />
         <ul className="book__info">
           <li>

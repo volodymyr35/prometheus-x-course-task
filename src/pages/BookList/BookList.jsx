@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { SearchBar } from '../../components/SearchBar';
 import { BookPrice } from '../../components/BookPrice';
 
-import './Book-list.css';
+import './BookList.css';
 
 export function BookList() {
   const [books, setBooks] = useState([]);
