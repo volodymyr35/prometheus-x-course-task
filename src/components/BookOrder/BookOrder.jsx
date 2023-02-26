@@ -1,48 +1,44 @@
-import './BookOrder.css';
+import { useState } from "react";
 
-export function BookOrder() {
-  const initPriceElement = document.getElementById('initPrice');
-  const quantityElement = document.getElementById('quantity');
-  const totalPriceElement = document.getElementById('totalPrice');
+import "./BookOrder.css";
 
-  const BOOK_PRICE = 52.72;
-  const MAX_QUANTITY = 42;
-  const MIN_QUANTITY = 1;
+const MAX_QUANTITY = 42;
+const MIN_QUANTITY = 1;
 
-  initPriceElement.textContent = `$${BOOK_PRICE}`;
-  initPriceElement.style.color = 'red';
+export function BookOrder({ bookPrice }) {
+  const [quantity, setQuantity] = useState(1);
 
   const formatCurrency = new Intl.NumberFormat(undefined, {
-    style: 'currency',
-    currency: 'USD',
+    style: "currency",
+    currency: "USD",
   });
 
   function calculateTotalPrice() {
-    const orderQuantity = Number(quantityElement.value);
+    const orderQuantity = Number(quantity);
 
-    if (orderQuantity < MIN_QUANTITY && quantityElement.value) {
-      alert('You entered invalid quantity!');
+    if (orderQuantity < MIN_QUANTITY && quantity) {
+      alert("You entered an invalid quantity!");
     } else if (orderQuantity > MAX_QUANTITY) {
-      alert('You can`t order more than 42 items!');
-      quantityElement.value = MAX_QUANTITY;
+      alert("You can`t order more than 42 items!");
+      setQuantity(MAX_QUANTITY);
     }
 
-    const totalPriceValue = BOOK_PRICE * orderQuantity;
+    const totalPriceValue = bookPrice * orderQuantity;
 
-    totalPriceElement.textContent = formatCurrency.format(totalPriceValue);
-    totalPriceElement.style.color = 'green';
+    return formatCurrency.format(totalPriceValue);
   }
 
-  quantityElement.addEventListener('input', calculateTotalPrice);
-
-  calculateTotalPrice();
+  function handleQuantityChange(event) {
+    const newQuantity = Number(event.target.value);
+    setQuantity(newQuantity);
+  }
 
   return (
     <div className="book__order">
       <div className="order__row">
         <span className="row__label">Price:</span>
-        <span id="initPrice" className="row__price">
-          $0.00
+        <span id="initPrice" className="row__price" style={{ color: "red" }}>
+          {bookPrice ? formatCurrency.format(bookPrice) : "$0.00"}
         </span>
       </div>
       <label className="order__row">
@@ -51,15 +47,16 @@ export function BookOrder() {
           id="quantity"
           className="count__quantity"
           type="number"
-          min="1"
-          max="42"
-          value="1"
+          min={MIN_QUANTITY}
+          max={MAX_QUANTITY}
+          value={quantity}
+          onChange={handleQuantityChange}
         />
       </label>
       <div className="order__row">
         <span className="row__label">Total price:</span>
-        <span id="totalPrice" className="row__price">
-          $0.00
+        <span id="totalPrice" className="row__price" style={{ color: "green" }}>
+          {bookPrice ? calculateTotalPrice() : "$0.00"}
         </span>
       </div>
       <div className="order__button">

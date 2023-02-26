@@ -14,11 +14,11 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-        <Route exact path="/" component={SignIn} />
-        <Route path="/bookList" component={BookList} />
-        <Route path="/specificBook" component={SpecificBook} />
-        <Route path="/cart" component={Cart} />
-        <Route component={NotFoundPage} />
+        <Route exact path="/" element={<SignIn />} />
+        <Route path="/bookList" element={<BookList/>} />
+        <Route path="/books/:bookId" element={<SpecificBook/>} />
+        <Route path="/cart" element={<Cart/>} />
+        <Route path="*" element={<NotFoundPage/>} />
       </Routes>
       <Footer />
     </div>

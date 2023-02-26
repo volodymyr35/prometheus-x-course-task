@@ -1,7 +1,7 @@
 export function BookPrice() {
   return (
     <div className="book__price">
-      <label className="choose-price" for="bookPrice">
+      <label className="choose-price" htmlFor="bookPrice">
         Choose a price:
       </label>
       <select name="Price" id="choosePrice">

@@ -1,3 +1,5 @@
+import search from '../../images/search.svg';
+
 export function SearchBar() {
     return (
         <div className="search-bar">
@@ -7,7 +9,7 @@ export function SearchBar() {
             arial-label="search"
           />
           <button className="search-bar__btn">
-            <img src="../../images/search.svg" alt="search" />
+            <img src={search} alt="search" />
           </button>
         </div>
     );
