@@ -8,10 +8,6 @@ export function SpecificBook() {
   const [currentBook, setCurrentBook] = useState(null);
   const { bookId } = useParams();
 
-  // TODO: 
-  // 1. create state for storing current book data
-  // 2. fetch specific-book data using bookId
-  // 3. pass book data as props to children components
 
   useEffect(() => {
     fetch(`http://localhost:4000/books/${bookId}`)
@@ -38,12 +34,6 @@ export function SpecificBook() {
           </li>
           <li>
             <b>Book author:</b>{currentBook.author}
-          </li>
-          <li>
-            <b>Book level:</b> Beginer
-          </li>
-          <li>
-            <b>Book tags:</b> core
           </li>
         </ul>
         <BookOrder bookPrice={currentBook.price} />

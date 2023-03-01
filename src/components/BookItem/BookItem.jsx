@@ -1,46 +1,35 @@
-import { useState } from 'react';
+import { Link } from "react-router-dom";
+import imageNotFound from "../../images/imageNotFound.png";
 
 export function BookItem(props) {
-  const [showDescription, setShowDescription] = useState(false);
-  
-  const {
-    id,
-    author,
-    price,
-    image,
-    title,
-    shortDescription,
-    description,
-  } = props;
-
-  function toggleDescription() {
-    setShowDescription(!showDescription);
-  }
+  const { id, author, price, image, title, shortDescription } =
+    props;
 
   const formatCurrency = new Intl.NumberFormat(undefined, {
-    style: 'currency',
-    currency: 'USD',
+    style: "currency",
+    currency: "USD",
   });
 
   return (
-    <div className="book" id={id}>
-      <img className="book__image" src={image} alt="book" />
+    <div className="book">
+      <img className="book__image" src={image || imageNotFound} alt="book" />
       <ul className="book__info">
-        <li><b>Book title:</b> {title}</li>
-        <li><b>Book author:</b> {author}</li>
-        <li><b>Book shortDescription:</b> {shortDescription}</li>
+        <li>
+          <b>Book title:</b> {title}
+        </li>
+        <li>
+          <b>Book author:</b> {author}
+        </li>
+        <li>
+          <b>Book shortDescription:</b> {shortDescription}
+        </li>
       </ul>
       <div className="book__info-row">
         <span className="row__label">{formatCurrency.format(price)}</span>
-        <button className="view__button" onClick={toggleDescription}>
-          {showDescription ? 'Hide' : 'View'}
-        </button>
+        <Link to={`/books/${id}`}>
+          <button className="view__button">View</button>
+        </Link>
       </div>
-      {showDescription && (
-        <p className="book__description">
-          <b>Description:</b> {description}
-        </p>
-      )}
     </div>
   );
 }

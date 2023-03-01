@@ -15,7 +15,7 @@ function App() {
       <Header />
       <Routes>
         <Route exact path="/" element={<SignIn />} />
-        <Route path="/bookList" element={<BookList/>} />
+        <Route path="/books" element={<BookList/>} />
         <Route path="/books/:bookId" element={<SpecificBook/>} />
         <Route path="/cart" element={<Cart/>} />
         <Route path="*" element={<NotFoundPage/>} />
