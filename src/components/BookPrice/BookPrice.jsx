@@ -1,3 +1,5 @@
+import './BookPrice.css';
+
 export function BookPrice() {
   return (
     <div className="book__price">

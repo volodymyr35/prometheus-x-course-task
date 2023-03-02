@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import imageNotFound from "../../images/imageNotFound.png";
+import './BookItem.css';
 
 export function BookItem(props) {
   const { id, author, price, image, title, shortDescription } =
@@ -20,7 +21,7 @@ export function BookItem(props) {
         <li>
           <b>Book author:</b> {author}
         </li>
-        <li>
+        <li className="book__short-description">
           <b>Book shortDescription:</b> {shortDescription}
         </li>
       </ul>

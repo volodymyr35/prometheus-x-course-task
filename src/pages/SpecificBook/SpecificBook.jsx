@@ -14,7 +14,7 @@ export function SpecificBook() {
     .then(response => response.json())
     .then(data => setCurrentBook(data))
     .catch(error => console.error(error));
-  }, []);
+  }, [bookId]);
 
   if (!currentBook) {
     return null;
@@ -22,9 +22,9 @@ export function SpecificBook() {
 
   return (
     <>
-      <div className="book-specification">
+      <div className="book__specification">
         <img
-          className="book__image"
+          className="book__image-specification"
           src={currentBook.image || imageNotFound}
           alt="book"
         />
@@ -36,9 +36,9 @@ export function SpecificBook() {
             <b>Book author:</b>{currentBook.author}
           </li>
         </ul>
-        <BookOrder bookPrice={currentBook.price} />
+        <BookOrder id={currentBook.id} bookPrice={currentBook.price} />
       </div>
-      <p className="book__description">
+      <p className="book__description-specification">
         <b>Description:</b>{currentBook.description}
       </p>
     </>

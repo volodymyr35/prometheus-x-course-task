@@ -1,26 +1,19 @@
-.book__image {
-  width: 450px;
-}
-
-.book-specification {
+.book__specification {
   display: flex;
   justify-content: space-between;
   padding: 0 20px;
   margin: 20px 0;
   width: 100%;
+  height: 65vh;
+}
+.book__image-specification {
+  width: 360px;
 }
 
 .book__info {
   margin-right: auto;
 }
 
-
-.add__button {
-  width: 100px;
-  padding: 5px;
-  border-radius: 5px;
-}
-
-.book__description {
-  margin: 40px 20px 0;
+.book__description-specification {
+  margin: 40px 20px;
 }

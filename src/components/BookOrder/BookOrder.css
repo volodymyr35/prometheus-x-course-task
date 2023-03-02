@@ -1,29 +1,36 @@
 .book__order {
-    border: 2px dashed grey;
-    width: 350px;
-    height: fit-content;
-    padding: 10px;
-  }
-  
-  .order__row {
-    width: 100%;
-    display: inline-flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-  
-  .row__label {
-    font-weight: bold;
-  }
-  
-  .count__quantity {
-    width: 60px;
-    border-radius: 5px;
-    padding: 3px;
-  }
-  
-  .order__button {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 80px;
-  }
+  border: 2px dashed grey;
+  width: 350px;
+  height: fit-content;
+  padding: 10px;
+}
+
+.order__row {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.row__label {
+  font-weight: bold;
+}
+
+.count__quantity {
+  width: 60px;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+.order__button {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 80px;
+}
+
+
+.add__button {
+  width: 100px;
+  padding: 5px;
+  border-radius: 5px;
+}

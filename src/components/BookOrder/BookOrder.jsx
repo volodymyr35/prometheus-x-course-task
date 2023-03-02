@@ -1,12 +1,15 @@
 import { useState } from "react";
+import { useAppContext } from "../../context/appContext";
 
 import "./BookOrder.css";
 
 const MAX_QUANTITY = 42;
 const MIN_QUANTITY = 1;
 
-export function BookOrder({ bookPrice }) {
+export function BookOrder({ id, bookPrice }) {
   const [quantity, setQuantity] = useState(1);
+
+  const { addToCart } = useAppContext();
 
   const formatCurrency = new Intl.NumberFormat(undefined, {
     style: "currency",
@@ -60,7 +63,7 @@ export function BookOrder({ bookPrice }) {
         </span>
       </div>
       <div className="order__button">
-        <button className="add__button">Add to cart</button>
+        <button className="add__button" onClick={() => addToCart({ id, quantity, bookPrice })}>Add to cart</button>
       </div>
     </div>
   );
