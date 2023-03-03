@@ -1,16 +1,13 @@
-import { useState } from "react";
 import { useEffectOnce } from "../../hooks";
+import { useAppContext } from "../../context/appContext";
 import { SearchBar } from "../../components/SearchBar";
 import { BookPrice } from "../../components/BookPrice";
 import { BookItem } from "../../components/BookItem";
 
-
 import "./BookList.css";
 
 export function BookList() {
-  const [books, setBooks] = useState([]);
-
- 
+  const { books, setBooks } = useAppContext();
 
   useEffectOnce(() => {
     fetch("http://localhost:4000/books")

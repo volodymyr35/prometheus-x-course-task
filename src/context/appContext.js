@@ -15,7 +15,8 @@ export const useAppContext = () => {
 
 const AppContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
-  
+  const [books, setBooks] = useState([]);
+
   /**
    * @param {{ id: number, quantity: number, bookPrice: number}} bookData 
    */
@@ -39,10 +40,9 @@ const AppContextProvider = ({ children }) => {
   const clearCart = () => {
     setCart([]);
   }
-  
 
   return (
-    <AppContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>
+    <AppContext.Provider value={{ cart, books, addToCart, removeFromCart, clearCart, setBooks }}>
       {children}
     </AppContext.Provider>
   )

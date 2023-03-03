@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import imageNotFound from "../../images/imageNotFound.png";
-import './BookItem.css';
+import "./BookItem.css";
 
 export function BookItem(props) {
-  const { id, author, price, image, title, shortDescription } =
-    props;
+  const { id, author, price, image, title, shortDescription } = props;
 
   const formatCurrency = new Intl.NumberFormat(undefined, {
     style: "currency",
