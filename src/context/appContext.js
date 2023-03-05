@@ -14,14 +14,13 @@ export const useAppContext = () => {
 }
 
 const AppContextProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
-  const [books, setBooks] = useState([]);
+  const [cartData, setCart] = useState([]);
 
   /**
-   * @param {{ id: number, quantity: number, bookPrice: number}} bookData 
+   * @param {{ id: number, quantity: number, bookPrice: number, bookName: string }} bookData 
    */
   const addToCart = (bookData) => {
-    const oldCart = [...cart];
+    const oldCart = [...cartData];
     const newCart = oldCart.concat(bookData);
 
     setCart(newCart);
@@ -31,8 +30,7 @@ const AppContextProvider = ({ children }) => {
    * @param {number} id 
    */
   const removeFromCart = (id) => {
-    const oldCart = [...cart];
-    const newCart = oldCart.filter((bookData) => bookData.id !== id);
+    const newCart = cartData.filter((bookData) => bookData.id !== id);
 
     setCart(newCart);
   };
@@ -42,7 +40,7 @@ const AppContextProvider = ({ children }) => {
   }
 
   return (
-    <AppContext.Provider value={{ cart, books, addToCart, removeFromCart, clearCart, setBooks }}>
+    <AppContext.Provider value={{ cartData, addToCart, removeFromCart, clearCart }}>
       {children}
     </AppContext.Provider>
   )

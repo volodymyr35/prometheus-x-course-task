@@ -6,8 +6,9 @@ import "./BookOrder.css";
 const MAX_QUANTITY = 42;
 const MIN_QUANTITY = 1;
 
-export function BookOrder({ id, bookPrice }) {
+export function BookOrder({ currentBook }) {
   const [quantity, setQuantity] = useState(1);
+  const { id, price: bookPrice, title: bookName } = currentBook;
 
   const { addToCart } = useAppContext();
 
@@ -63,7 +64,14 @@ export function BookOrder({ id, bookPrice }) {
         </span>
       </div>
       <div className="order__button">
-        <button className="add__button" onClick={() => addToCart({ id, quantity, bookPrice })}>Add to cart</button>
+        <button
+          className="add__button"
+          onClick={() => {
+            addToCart({ id, quantity, bookPrice, bookName })
+          }}
+        >
+          Add to cart
+        </button>
       </div>
     </div>
   );
