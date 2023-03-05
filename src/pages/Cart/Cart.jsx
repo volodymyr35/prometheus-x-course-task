@@ -4,7 +4,7 @@ import trash from "../../images/trash.png";
 import "./Cart.css";
 
 export function Cart() {
-  const { cartData, addToCart, removeFromCart, clearCart } = useAppContext();
+  const { cartData, removeFromCart, clearCart } = useAppContext();
 
   const formatCurrency = new Intl.NumberFormat(undefined, {
     style: "currency",
@@ -16,7 +16,6 @@ export function Cart() {
     0
   );
 
- 
   if (!cartData.length) {
     return (
       <div className="cart__container">
@@ -29,7 +28,14 @@ export function Cart() {
 
   return (
     <>
-      <button>Purchase</button>
+      <button
+        className="purchase__button"
+        onClick={() => {
+          clearCart();
+        }}
+      >
+        Purchase
+      </button>
       <table>
         <thead>
           <tr>
@@ -37,7 +43,7 @@ export function Cart() {
             <th>Quantity</th>
             <th>Price per book</th>
             <th>Item price</th>
-            <th>{trash}</th>
+            <th>Remove</th>
           </tr>
         </thead>
         <tbody>
@@ -47,7 +53,16 @@ export function Cart() {
               <td>{quantity}</td>
               <td>{formatCurrency.format(bookPrice)}</td>
               <td>{formatCurrency.format(quantity * bookPrice)}</td>
-              <td><button>x</button></td>
+              <td>
+                <button
+                  className="remove__button"
+                  onClick={() => {
+                    removeFromCart(id);
+                  }}
+                >
+                  <img src={trash} alt="trash" width="15" />
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>

@@ -27,7 +27,7 @@ export function BookItem(props) {
       <div className="book__info-row">
         <span className="row__label">{formatCurrency.format(price)}</span>
         <Link to={`/books/${id}`}>
-          <button className="view__button">View</button>
+          <span className="view__link">View</span>
         </Link>
       </div>
     </div>

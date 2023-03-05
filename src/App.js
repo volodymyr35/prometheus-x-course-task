@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header';
 import { SignIn } from './pages/SignIn/SignIn';
@@ -10,11 +11,13 @@ import { Footer } from './components/Footer';
 import './App.css';
 
 function App() {
+ const [username, setUsername] = useState('');
+
   return (
     <div className="App">
-      <Header />
+      <Header username={username} setUsername={setUsername} />
       <Routes>
-        <Route exact path="/" element={<SignIn />} />
+        <Route exact path="/" element={<SignIn setUsername={setUsername} />} />
         <Route path="/books" element={<BookList/>} />
         <Route path="/books/:bookId" element={<SpecificBook/>} />
         <Route path="/cart" element={<Cart/>} />
