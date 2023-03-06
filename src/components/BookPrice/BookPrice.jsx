@@ -1,25 +1,34 @@
-import './BookPrice.css';
+import "./BookPrice.css";
 
-export function BookPrice() {
+const options = [
+  { key: "all", value: "" },
+  { key: "0", value: "0 - 15" },
+  { key: "15", value: "15 - 30" },
+  { key: "30", value: "> 30" },
+];
+
+export function BookPrice({ onFilter }) {
+  const handleSelectChange = (event) => {
+    const value = event.target.value;
+    onFilter(value);
+  };
+
   return (
     <div className="book__price">
-      <label className="choose-price" htmlFor="bookPrice">
+      <label className="choose-price" htmlFor="choosePrice">
         Choose a price:
       </label>
-      <select name="Price" id="choosePrice">
-        <option value="">Price</option>
-        <option value="All">All Books</option>
-        <option value="38.49">38.49</option>
-        <option value="36.99">36.99</option>
-        <option value="31.99">31.99</option>
-        <option value="29.99">29.99</option>
-        <option value="29.49">29.49</option>
-        <option value="26.49">26.49</option>
+      <select
+        id="choosePrice"
+        name="choosePrice"
+        onChange={handleSelectChange}
+      >
+        {options.map(({ key, value }) => (
+          <option key={key} value={value}>
+            {value === "" ? "All Books" : value}
+          </option>
+        ))}
       </select>
     </div>
   );
 }
-
-// TODO: 
-// 1. Change price ranges
-// 2. Add filter range logic

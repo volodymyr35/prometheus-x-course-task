@@ -68,7 +68,6 @@ export function BookOrder({ currentBook }) {
           className="add__button"
           onClick={() => {
             addToCart({ id, quantity, bookPrice, bookName })
-            alert("You added items to Cart!")
           }}
         >
           Add to Cart

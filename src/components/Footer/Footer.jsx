@@ -2,7 +2,7 @@ import './Footer.css';
 
 export function Footer() {
   return (
-    <footer>
+    <footer className='footer'>
       <p className="footer_copyrights">
         <span>"Виконано в </span>
         <a href="https://prometheus.org.ua/">Prometheus</a> 

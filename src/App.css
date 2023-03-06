@@ -8,6 +8,10 @@ button {
   cursor: pointer;
 }
 
+a {
+  text-decoration: none;
+}
+
 ul>li {
   list-style: none;
   padding: 10px;

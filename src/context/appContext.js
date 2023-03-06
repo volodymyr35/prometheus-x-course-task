@@ -20,10 +20,20 @@ const AppContextProvider = ({ children }) => {
    * @param {{ id: number, quantity: number, bookPrice: number, bookName: string }} bookData 
    */
   const addToCart = (bookData) => {
-    const oldCart = [...cartData];
-    const newCart = oldCart.concat(bookData);
+    const bookIndex = cartData.findIndex(data => data.id === bookData.id);
 
-    setCart(newCart);
+    if (bookIndex !== -1) {
+      const newData = [...cartData];
+      const { quantity: oldQuantity } = newData[bookIndex];
+      newData[bookIndex] = {...newData[bookIndex], quantity: oldQuantity + bookData.quantity };
+
+      setCart(newData);
+    } else {
+      const oldCart = [...cartData];
+      const newCart = oldCart.concat(bookData);
+
+      setCart(newCart);
+    }
   };
 
   /**
