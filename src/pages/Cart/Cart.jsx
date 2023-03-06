@@ -19,7 +19,7 @@ export function Cart() {
   if (!cartData.length) {
     return (
       <div className="cart__container">
-        <button>Purchase</button>
+        <button className="purchase__button" disabled>Purchase</button>
         <img src={cartIcon} alt="cart" />
         <span>Cart Empty...</span>
       </div>
@@ -27,13 +27,14 @@ export function Cart() {
   }
 
   return (
-    <>
+    <div className="cart__container">
       <button
         className="purchase__button"
         onClick={() => {
           clearCart();
+          alert("Thank you for your purchase!")
         }}
-      >
+        >
         Purchase
       </button>
       <table>
@@ -67,7 +68,7 @@ export function Cart() {
           ))}
         </tbody>
       </table>
-      <span>Total price: {formatCurrency.format(cartDataTotal)}</span>
-    </>
+      <span className="total__price">Total price: {formatCurrency.format(cartDataTotal)}</span>
+    </div>
   );
 }

@@ -4,10 +4,11 @@
   padding: 0 20px;
   margin: 20px 0;
   width: 100%;
-  height: 65vh;
+  height: 55vh;
 }
 .book__image-specification {
-  width: 360px;
+  width: 400px;
+  height: 400px;
 }
 
 .book__info {
@@ -15,5 +16,5 @@
 }
 
 .book__description-specification {
-  margin: 40px 20px;
+  margin: 50px 20px;
 }

@@ -31,3 +31,9 @@
     border-radius: 5px;
     font-weight: bold;
   }
+
+  .sign-out:hover {
+    background-color: red;
+    color: #fff;
+    /* transition: 0.3s; */
+  }

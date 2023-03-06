@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import avatar from "../../images/avatar.png";
 import "./SignIn.css";
 
+const MIN_VALUE = 4;
+const MAX_VALUE = 16;
+
 export function SignIn({ setUsername }) {
   const navigate = useNavigate();
   const [value, setValue] = useState("");
@@ -13,7 +16,7 @@ export function SignIn({ setUsername }) {
     navigate("/books");
   };
 
-  const isValidUsername = value.length >= 4 && value.length <= 16;
+  const isValidUsername = value.length >= MIN_VALUE && value.length <= MAX_VALUE;
 
   return (
     <div className="login__container">
