@@ -18,10 +18,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "serve": "json-server --watch public/books.json --port 4000",
-    "dev": "concurrently \"react-scripts start\" \"npm run serve\"",
-    "predeploy": "npm run bild",
-    "deploy": "gh-pages -d build"
+    "dev": "concurrently \"react-scripts start\" \"npm run serve\""
   },
   "eslintConfig": {
     "extends": [
