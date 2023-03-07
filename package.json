@@ -1,5 +1,6 @@
 {
   "name": "x-course-task",
+  "homepage": "https://volodymyr35.github.io/prometheus-x-course-task",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -18,7 +19,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "serve": "json-server --watch public/books.json --port 4000",
-    "dev": "concurrently \"react-scripts start\" \"npm run serve\""
+    "dev": "concurrently \"react-scripts start\" \"npm run serve\"",
+    "predeploy": "npm run bild",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -40,6 +43,7 @@
   },
   "devDependencies": {
     "concurrently": "^7.6.0",
+    "gh-pages": "^5.0.0",
     "json-server": "^0.17.2"
   }
 }
