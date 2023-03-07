@@ -12,13 +12,15 @@ const bookPriceKeyToValueMap = {
   "> 30": [30, Number.MAX_SAFE_INTEGER],
 };
 
+const { REACT_APP_API_URL = 'http://localhost:4000' } = process.env;
+
 export function BookList() {
   const [books, setBooks] = useState([]);
   const [booksBySearch, setBooksBySearch] = useState([]);
   const [booksByPrice, setBooksByPrice] = useState([]);
 
   useEffectOnce(() => {
-    fetch("http://localhost:4000/books")
+    fetch(`${REACT_APP_API_URL}/books`)
       .then((response) => response.json())
       .then((data) => setBooks(data));
   });

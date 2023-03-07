@@ -3,14 +3,17 @@ import { useParams } from "react-router-dom";
 import { useEffectOnce } from "../../hooks";
 import { BookOrder } from "../../components/BookOrder";
 import imageNotFound from "../../images/imageNotFound.png";
+
 import "./SpecificBook.css";
+
+const { REACT_APP_API_URL = 'http://localhost:4000' } = process.env;
 
 export function SpecificBook() {
   const [currentBook, setCurrentBook] = useState(null);
   const { bookId } = useParams();
 
   useEffectOnce(() => {
-    fetch(`http://localhost:4000/books/${bookId}`)
+    fetch(`${REACT_APP_API_URL}/books/${bookId}`)
       .then((response) => response.json())
       .then((data) => setCurrentBook(data))
       .catch((error) => console.error(error));
