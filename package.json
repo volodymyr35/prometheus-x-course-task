@@ -16,7 +16,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false --maxWorkers=50%",
+    "test:coverage": "npm test -- --coverage",
     "eject": "react-scripts eject",
     "serve": "json-server --watch public/books.json --port 4000",
     "dev": "concurrently \"react-scripts start\" \"npm run serve\"",

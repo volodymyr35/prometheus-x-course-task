@@ -38,7 +38,7 @@ export function BookOrder({ currentBook }) {
   }
 
   return (
-    <div className="book__order">
+    <div className="book__order" data-testid="book-order">
       <div className="order__row">
         <span className="row__label">Price:</span>
         <span id="initPrice" className="row__price" style={{ color: "red" }}>
@@ -67,7 +67,8 @@ export function BookOrder({ currentBook }) {
         <button
           className="add__button"
           onClick={() => {
-            addToCart({ id, quantity, bookPrice, bookName })
+            addToCart({ id, quantity, bookPrice, bookName });
+            setQuantity(1);
           }}
         >
           Add to Cart
