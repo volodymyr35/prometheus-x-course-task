@@ -2,12 +2,12 @@
   display: inline-flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 10px;
+  gap: 0.625rem;
   width: 100%;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: 1.75rem;
 }

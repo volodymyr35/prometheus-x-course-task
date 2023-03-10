@@ -1,1 +1,1 @@
-export { BookOrder } from './BookOrder';
+export { BookOrder, calculateTotalPrice } from './BookOrder';

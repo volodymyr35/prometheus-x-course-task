@@ -9,19 +9,19 @@
 }
 
 .cart__container>img {
-  width: 100px;
+  width: 6.25rem;
   position: absolute;
-  top: 210px;
+  top: 13.125rem;
 
 }
 
 .purchase__button {
-  padding: 5px;
-  border-radius: 5px;
+  padding: 0.3125rem;
+  border-radius: 0.3125rem;
   font-weight: bold;
   position: absolute;
-  top: 50px;
-  right: 180px;
+  top: 3.125rem;
+  right: 11.25rem;
   
 }
 
@@ -41,9 +41,9 @@ table {
 table,
 th,
 td {
-  border: 1px solid #000;
+  border: 0.0625rem solid #000;
   text-align: center;
-  padding: 5px;
+  padding: 0.3125rem;
 }
 
 th {
@@ -62,7 +62,7 @@ tr:hover {
 
 .total__price {
   position: absolute;
-  right: 150px;
-  bottom: 100px;
+  right: 9.375rem;
+  bottom: 6.25rem;
   color: red;
 }

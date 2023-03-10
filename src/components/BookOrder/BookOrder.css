@@ -1,15 +1,15 @@
 .book__order {
-  border: 2px dashed grey;
-  width: 350px;
+  border: 0.125rem dashed grey;
+  width: 21.875rem;
   height: fit-content;
-  padding: 10px;
+  padding: 0.625rem;
 }
 
 .order__row {
   width: 100%;
   display: inline-flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 
 .row__label {
@@ -17,23 +17,23 @@
 }
 
 .count__quantity {
-  width: 60px;
-  border-radius: 5px;
-  padding: 3px;
+  width: 3.75rem;
+  border-radius: 0.3125rem;
+  padding: 0.1875rem;
 }
 
 .order__button {
   display: flex;
   justify-content: flex-end;
-  margin-top: 80px;
+  margin-top: 5rem;
 }
 
 
 .add__button {
-  width: 100px;
-  padding: 5px;
-  border-radius: 5px;
-  font-size: 16px;
+  width: 6.25rem;
+  padding: 0.3125rem;
+  border-radius: 0.3125rem;
+  font-size: 1rem;
   font-weight: 500;
 }
 

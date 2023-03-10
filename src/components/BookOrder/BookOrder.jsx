@@ -6,35 +6,47 @@ import "./BookOrder.css";
 const MAX_QUANTITY = 42;
 const MIN_QUANTITY = 1;
 
-export function BookOrder({ currentBook }) {
-  const [quantity, setQuantity] = useState(1);
-  const { id, price: bookPrice, title: bookName } = currentBook;
+const formatCurrency = new Intl.NumberFormat(undefined, {
+  style: "currency",
+  currency: "USD",
+});
 
-  const { addToCart } = useAppContext();
-
-  const formatCurrency = new Intl.NumberFormat(undefined, {
-    style: "currency",
-    currency: "USD",
-  });
-
-  function calculateTotalPrice() {
-    const orderQuantity = Number(quantity);
-
-    if (orderQuantity < MIN_QUANTITY && quantity) {
-      alert("You entered an invalid quantity!");
-    } else if (orderQuantity > MAX_QUANTITY) {
-      alert("You can`t order more than 42 items!");
-      setQuantity(MAX_QUANTITY);
-    }
-
-    const totalPriceValue = bookPrice * orderQuantity;
-
-    return formatCurrency.format(totalPriceValue);
+export function calculateTotalPrice(quantity, bookPrice) {
+  if (quantity < MIN_QUANTITY) {
+    alert("You entered an invalid quantity!");
+    return formatCurrency.format(bookPrice * MIN_QUANTITY);
+  } else if (quantity > MAX_QUANTITY) {
+    alert("You can`t order more than 42 items!");
+    return formatCurrency.format(bookPrice * MAX_QUANTITY);
   }
+
+  return formatCurrency.format(bookPrice * quantity);
+}
+
+export function BookOrder({ currentBook }) {
+  const { id, price: bookPrice = 0, title: bookName } = currentBook;
+  const [quantity, setQuantity] = useState(1);
+  const { addToCart } = useAppContext();
 
   function handleQuantityChange(event) {
     const newQuantity = Number(event.target.value);
-    setQuantity(newQuantity);
+
+    if (newQuantity > MAX_QUANTITY) {
+      setQuantity(MAX_QUANTITY);
+      return;
+    }
+
+    if (newQuantity < MIN_QUANTITY) {
+      setQuantity(MIN_QUANTITY);
+      return;
+    }
+
+    setQuantity(Number(event.target.value));
+  }
+
+  function handleAddToCart() {
+    addToCart({ id, quantity, bookPrice, bookName });
+    setQuantity(1);
   }
 
   return (
@@ -59,17 +71,20 @@ export function BookOrder({ currentBook }) {
       </label>
       <div className="order__row">
         <span className="row__label">Total price:</span>
-        <span id="totalPrice" className="row__price" style={{ color: "green" }}>
-          {bookPrice ? calculateTotalPrice() : "$0.00"}
+        <span
+          id="totalPrice"
+          className="row__price"
+          style={{ color: "green" }}
+          data-testid="total-price"
+        >
+          {bookPrice ? calculateTotalPrice(quantity, bookPrice) : "$0.00"}
         </span>
       </div>
       <div className="order__button">
         <button
           className="add__button"
-          onClick={() => {
-            addToCart({ id, quantity, bookPrice, bookName });
-            setQuantity(1);
-          }}
+          onClick={handleAddToCart}
+          data-testid="add-to-cart"
         >
           Add to Cart
         </button>

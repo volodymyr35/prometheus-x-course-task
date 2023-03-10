@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom/extend-expect";
-import { render, waitFor, cleanup } from "@testing-library/react";
+import { render, cleanup, screen } from "@testing-library/react";
 import { useFetchOnce } from "../../hooks";
 import { SpecificBook } from "../../pages/SpecificBook";
 
@@ -19,7 +19,7 @@ jest.mock("../../components/BookOrder", () => ({
   BookOrder: () => <div data-testid="book-order" />,
 }));
 
-describe("SpecificBook", () => {
+describe("<SpecificBook />", () => {
   afterEach(() => {
     cleanup();
     jest.clearAllMocks();
@@ -32,9 +32,9 @@ describe("SpecificBook", () => {
       loading: false,
     }));
 
-    const { queryByTestId } = render(<SpecificBook />);
+    render(<SpecificBook />);
 
-    expect(queryByTestId("specific-book")).toBeNull();
+    expect(screen.queryByTestId("specific-book")).toBeNull();
   });
 
   it("renders book data when it is available", async () => {
@@ -44,20 +44,19 @@ describe("SpecificBook", () => {
       loading: false,
     }));
 
-    const { getByTestId, getByRole, getByAltText } = render(
-      <SpecificBook bookId={mockBookData.id} />
-    );
+    render(<SpecificBook bookId={mockBookData.id} />);
 
-    await waitFor(() =>
-      expect(getByTestId("specific-book")).toBeInTheDocument()
-    );
+    await screen.findByTestId("specific-book");
 
-    expect(getByRole("list")).toHaveTextContent(mockBookData.title);
-    expect(getByRole("list")).toHaveTextContent(mockBookData.author);
-    expect(getByTestId("book-description")).toHaveTextContent(
+    expect(screen.getByRole("list")).toHaveTextContent(mockBookData.title);
+    expect(screen.getByRole("list")).toHaveTextContent(mockBookData.author);
+    expect(screen.getByTestId("book-description")).toHaveTextContent(
       mockBookData.description
     );
-    expect(getByAltText("book")).toHaveAttribute("src", mockBookData.image);
+    expect(screen.getByAltText("book")).toHaveAttribute(
+      "src",
+      mockBookData.image
+    );
   });
 
   it("logs errors to the console", () => {

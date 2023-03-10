@@ -3,19 +3,19 @@
     width: 100%;
     justify-content: flex-start;
     align-items: center;
-    gap: 10px;
+    gap: 0.625rem;
   }
   
   #choosePrice {
-    padding: 8px;
-    border-radius: 5px;
+    padding: 0.5rem;
+    border-radius: 0.3125rem;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 1.125rem;
     background-color: #fff;
     box-shadow: none;
-    width: 150px;
+    width: 9.375rem;
   }
   
   .choose-price {
-    font-size: 18px;
+    font-size: 1.125rem;
   }

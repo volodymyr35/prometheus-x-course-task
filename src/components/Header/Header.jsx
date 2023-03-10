@@ -30,18 +30,18 @@ export function Header({ username, setUsername }) {
         <h2>X-course task / {username}</h2>
         <nav className="navigation">
           <Link to="/books">
-            <img src={books} alt="books" width="40" />
+            <img src={books} alt="books" width="40em" />
           </Link>
 
           <CartCounter>
             <Link to="/cart">
-              <img src={cart} alt="cart" width="40" />
+              <img src={cart} alt="cart" width="40em" />
             </Link>
           </CartCounter>
           <button className="sign-out" onClick={navigateToSignIn}>
             Sign-Out
           </button>
-          <img src={avatar} alt="user avatar" width="40" />
+          <img src={avatar} alt="user avatar" width="40em" />
           <span>{username}</span>
         </nav>
       </div>
